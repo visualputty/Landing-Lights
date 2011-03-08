@@ -12,7 +12,12 @@ def index(request):
     return render_to_response('passages/index.html', { 'form': form })
     
 def new(request):
-    pass
+    if request.method == "POST":
+        f = PassageForm(request.POST)
+        if not f.is_valid():
+            return HttpResponse(f.errors)
+        new_passage = f.save()
+        return HttpResponse('Success!')
     
 def ajax_lookup(request):
     results = {'vessels': []}
