@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     # For the passages
     (r'^passages/$', 'passages.views.index'),
     (r'^passages/new/$', 'passages.views.new'),
+    (r'^passages/ajax_lookup/$', 'passages.views.ajax_lookup'),
     
     
     # For the admin section

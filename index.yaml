@@ -25,3 +25,8 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: passages_vesseldetail
+  properties:
+  - name: __key__
+    direction: desc
