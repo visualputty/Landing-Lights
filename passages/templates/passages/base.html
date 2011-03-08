@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Page title goes here{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/passages.css" type="text/css" />
+  <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/cupertino/jquery-ui.css" type="text/css">
+
+</head>
+<body>
+  <header>
+    <h1>{% block header %}Maybe a header here{% endblock %}</h1>
+  </header>
+  <content>
+    {% block content %}
+    <p>Content goes here</p>
+    {% endblock %}
+  </content>
+</body>
+</html>

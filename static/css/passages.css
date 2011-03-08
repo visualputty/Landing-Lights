@@ -1,0 +1,68 @@
+{
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, aside, nav, article {
+    display: block;
+}
+
+body {
+    margin: 0 auto;
+    font: 13px/22px georgia,serif;
+    background: #fff;
+}
+
+header {
+    background: #f0f0f0;
+    padding: 30px 0;
+}
+
+content {
+    width: 980px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    font: 1.5625em/30px georgia,serif;
+    font-size: 36px;
+}
+
+header h1 {
+    margin: 0 auto;
+    width: 980px;
+}
+
+p {
+    padding-bottom: 22px;
+}
+
+fieldset {
+    overflow: hidden;
+    padding: 0;
+    border: none;
+}
+
+.fieldWrapper {
+    float: left;
+}
+
+.fieldLabel {
+    font-family: Georgia,serif;
+    padding: 20px 0 5px 0;
+    font-size: 19px;
+    color: #848787;
+}
+
+.field {
+    width: 240px;
+}
+
+.field input {
+    font-size: 12px;
+    width: 220px;
+    padding: 6px;
+    background-color: #EFEFEF;
+    border: 1px solid #CCC;
+}
