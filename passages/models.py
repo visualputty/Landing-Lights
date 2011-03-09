@@ -56,4 +56,7 @@ class PassageForm(ModelForm):
     class Meta:
         model = Passage
         
+class VesselDetailForm(ModelForm):
+    class Meta:
+        model = VesselDetail
         
