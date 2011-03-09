@@ -12,12 +12,15 @@ def index(request):
     return render_to_response('passages/index.html', { 'form': form })
     
 def new(request):
+    response = ''
     if request.method == "POST":
-        f = PassageForm(request.POST)
-        if not f.is_valid():
-            return HttpResponse(f.errors)
-        new_passage = f.save()
-        return HttpResponse('Success!')
+        form = PassageForm(request.POST)
+        if not form.is_valid():
+            return render_to_response('passages/index.html', {'form': form})
+        new_passage = form.save()
+        response = "Success: Your request has been received"
+    form = PassageForm()
+    return render_to_response('passages/index.html', {'form': form, 'response': response})
     
 def ajax_lookup(request):
     results = {'vessels': []}

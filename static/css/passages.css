@@ -19,7 +19,7 @@ header {
 }
 
 content {
-    width: 980px;
+    width: 960px;
     display: block;
     margin: 0 auto;
 }
@@ -46,17 +46,33 @@ fieldset {
 
 .fieldWrapper {
     float: left;
+    min-width: 232px;
+    padding: 4px;
 }
 
 .fieldLabel {
     font-family: Georgia,serif;
-    padding: 20px 0 5px 0;
+    padding: 20px 0 0 0;
     font-size: 19px;
     color: #848787;
 }
 
+ul.errorlist {
+    list-style: none;
+    font-size: 11px;
+    color: red;
+    display: inline-block;
+    float: right;
+    padding: 0 6px;
+    margin: 0;
+}
+
+ul.errorlist li {
+    
+}
+
 .field {
-    width: 240px;
+    width: 232px;
 }
 
 .field input {
@@ -65,4 +81,26 @@ fieldset {
     padding: 6px;
     background-color: #EFEFEF;
     border: 1px solid #CCC;
+}
+
+#formButtons {
+    text-align: center;
+    margin: 20px 0;
+}
+#formButtons a {
+    margin: 10px;
+}
+
+
+#flashmessage {
+    text-align: center;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+    width: 80%;
+    border: 1px solid #151;
+    background-color: #6B6;
+    color: #151;
+    font: 1.5625em/30px georgia,serif;
+    font-size: 24px;
 }

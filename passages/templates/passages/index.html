@@ -6,17 +6,33 @@
 {% block content %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="/passages/new/" method="post">
+{% if response %}<div id='flashmessage'>{{ response }}</div>{% endif %}
+
+<form action="/passages/new/" method="post" id="passageForm">
   {% csrf_token %}
   <fieldset>
   {% for field in form %}
     <div class="fieldWrapper">
-      <div class="fieldLabel">{{ field.label_tag }}</div>
-      {{ field.errors }}
+      <div class="fieldLabel">{{ field.label_tag }} {{ field.errors }}</div>
       <div class="field">{{ field }}</div>
     </div>
   {% endfor %}
   </fieldset>
-  <input type="submit" value="Submit">
+  <div id="formButtons">
+    <a href="#" id="formResetButton" class="button big negative"><span class="reload icon"></span>Reset</a>
+    <a href="#" id="formSubmitButton" class="button big"><span class="check icon"></span>Send</a>
+  </div>
 </form>
+
+<script>
+  $(function() {
+    $('#formResetButton').click( function() {
+      $('#passageForm').reset();
+    });
+    $('#formSubmitButton').click( function() {
+      $('#passageForm').submit();
+    });
+  });
+</script>
+  
 {% endblock %}
