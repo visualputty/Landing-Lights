@@ -25,12 +25,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'djangoflash.middleware.FlashMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
     'django.core.context_processors.media',
+    'djangoflash.context_processors.flash',
 )
 
 # This test runner captures stdout and associates tracebacks with their
