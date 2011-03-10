@@ -2,7 +2,7 @@ $(function() {
     $( "#id_ship_name" ).autocomplete({
         source: function( request, response ) {
             $.ajax({
-                url: "/passages/ajax_lookup",
+                url: "/ajax_lookup",
                 data: { q : request.term },
                 dataType: "json",
                 success: function( data ) {

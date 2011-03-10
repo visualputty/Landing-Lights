@@ -8,7 +8,7 @@
 
 {% if response %}<div id='flashmessage'>{{ response }}</div>{% endif %}
 
-<form action="/passages/new/" method="post" id="passageForm">
+<form action="/new/" method="post" id="passageForm">
   {% csrf_token %}
   <fieldset>
   {% for field in form %}
