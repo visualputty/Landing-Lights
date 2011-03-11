@@ -21,7 +21,7 @@ header {
 content {
     width: 960px;
     display: block;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 
 h1 {
@@ -46,13 +46,14 @@ fieldset {
 
 .fieldWrapper {
     float: left;
-    min-width: 232px;
+    width: 232px;
     padding: 4px;
+    height: 82px;
 }
 
 .fieldLabel {
     font-family: Georgia,serif;
-    padding: 20px 0 0 0;
+    padding: 5px 0 0 0;
     font-size: 19px;
     color: #848787;
 }
@@ -61,8 +62,6 @@ ul.errorlist {
     list-style: none;
     font-size: 11px;
     color: red;
-    display: inline-block;
-    float: right;
     padding: 0 6px;
     margin: 0;
 }
@@ -81,11 +80,31 @@ ul.errorlist li {
     padding: 6px;
     background-color: #EFEFEF;
     border: 1px solid #CCC;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+input.dtField {
+    width: 94px;
+    margin-left: 4px;
+    margin-right: 4px;
+    text-align: center;
+}
+
+.field select {
+    font-size: 12px;
+    margin-top: 2px;
+    height: 29px;
+    width: 234px;
+    background-color: #EFEFEF;
+    border: 1px solid #CCC;
 }
 
 #formButtons {
     text-align: center;
-    margin: 20px 0;
+    margin: 0;
+    margin-bottom: 10px;
 }
 #formButtons a {
     margin: 10px;
@@ -98,9 +117,19 @@ ul.errorlist li {
     margin: 10px auto;
     display: block;
     width: 80%;
-    border: 1px solid #151;
-    background-color: #6B6;
-    color: #151;
+    border: 1px solid;
     font: 1.5625em/30px georgia,serif;
     font-size: 24px;
+}
+
+.error {
+    background-color: #B66;
+    color: #511;
+    border-color: #511;
+}
+
+.success {
+    background-color: #6B6;
+    color: #151;
+    border-color: #151;
 }

@@ -2,45 +2,47 @@
 from django.core.cache import cache
 from django.views.generic.simple import direct_to_template
 from django.template import RequestContext
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect, HttpResponse
 from models import *
 from django.utils import simplejson
-from django.http import HttpResponse
 from django.forms.models import model_to_dict
 
-def index(request, prev=None):
-    if not prev:
-        prev = {}
-    if not prev['form']:
-        form = PassageForm()
-        prev['form'] = form
-    return render_to_response('passages/index.html', prev)
-    
-def new(request):
-    response = ''
+def index(request):
+    rCxt = RequestContext(request)
     if request.method == "POST":
+        # Been sent some information
         form = PassageForm(request.POST)
-        if not form.is_valid():
-            return redirect('index', prev={'form': form})
-        new_passage = form.save()
-        # Also need to try updating the VesselDetail class
+        if form.is_valid():
+            # Also need to try updating the VesselDetail class
+            v = None
+            try:
+                v = VesselDetail.objects.get(ship_name=form.data['ship_name'])
+            except VesselDetail.DoesNotExist:
+                pass
+            except VesselDetail.MultipleObjectsReturned:
+                request.flash.now['error'] = "Oops - there was a problem there."
+                return render_to_response('passages/index.html', {'form': form}, context_instance=rCxt)
+            vForm = VesselDetailForm(request.POST, instance=v)
+            if vForm.is_valid():
+                vForm.save()
+                form.save()
+                request.flash['success'] = "Success: Your request has been received"
+                return HttpResponseRedirect('/')
+            else:
+                request.flash.now['error'] = 'Oops - there was an error here.'
+                return render_to_response('passages/index.html', {'form': form}, context_instance=rCxt)
 
-        v = None
-        try:
-            v = VesselDetail.objects.get(ship_name=form.data['ship_name'])
-        except VesselDetail.DoesNotExist:
-            pass
-        except VesselDetail.MultipleObjectsReturned:
-            return redirect('index', prev={'form': form, 'error': 'Oops - there was a problem'})
-        if not form.is_valid():
-            return redirect('index', prev={'form': form, 'error': 'Oops - there was a problem'})
-                                       
-        form = VesselDetailForm(request.POST, instance=v)
-        form.save()
-
-        response = "Success: Your request has been received"
-    form = PassageForm()
-    return redirect('index', prev={'form': form, 'response': response})
+        else:
+            # In this case we failed validation
+            request.flash.now['error'] = "Oops = there was an error with your form."
+        return render_to_response('passages/index.html', {'form': form}, context_instance=rCxt)
+    
+    else:
+        # Need a fresh form
+        form = PassageForm()
+        return render_to_response('passages/index.html', {'form': form}, context_instance=rCxt)
+        
     
 def ajax_lookup(request):
     results = {'vessels': []}

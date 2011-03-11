@@ -35,11 +35,16 @@ $(function() {
                 }
             }
         },
-        open: function( ) {
-            
+        open: function() {
+        	$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
         },
-        close: function( ) {
-            
+        close: function() {
+            $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
         }
     });
+    
+    // Start the calendars
+    $('.dtField[id$=0]').datepicker({ dateFormat: 'dd/mm/yy' });
+    // And the masks for the time boxes
+    $('.dtField[id$=1]').mask('99:99', { placeholder: " " });
 });

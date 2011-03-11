@@ -5,7 +5,7 @@ from djangoappengine.settings_base import *
 
 import os
 
-SECRET_KEY = '=r-$b*8hglm+858&9t043hlm6-&6-3d3vfc4((7yd0dbrakhvi'
+SECRET_KEY = ''''R*kmC"zvXEy^pp~arYJE?<YiepwtKD?R&cd\eo@VF-;J};#\a'''
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -35,6 +35,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'djangoflash.context_processors.flash',
 )
+
+FLASH_IGNORE_MEDIA = True # Optional. Default: DEBUG
 
 # This test runner captures stdout and associates tracebacks with their
 # corresponding output. Helps a lot with print-debugging.

@@ -1,20 +1,23 @@
 {% extends "passages/base.html" %}
 
-{% block title %}New Passage Request{% endblock %}
-{% block header %}New Passage Request{% endblock %}
+{% block title %}Pre-Arrival Information{% endblock %}
+{% block header %}Pre-Arrival Information{% endblock %}
 
 {% block content %}
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% if response %}<div id='flashmessage'>{{ response }}</div>{% endif %}
+{% if flash.success %}<div id='flashmessage' class='success'>{{ flash.success }}</div>{% endif %}
+{% if flash.error %}<div id='flashmessage' class='error'>{{ flash.error }}</div>{% endif %}
 
-<form action="/new/" method="post" id="passageForm">
+<form action="" method="post" id="passageForm">
   {% csrf_token %}
   <fieldset>
   {% for field in form %}
     <div class="fieldWrapper">
-      <div class="fieldLabel">{{ field.label_tag }} {{ field.errors }}</div>
+      <div class="fieldLabel">{{ field.label_tag }}</div>
       <div class="field">{{ field }}</div>
+      {{ field.errors }}
     </div>
   {% endfor %}
   </fieldset>
