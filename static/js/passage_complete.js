@@ -44,7 +44,7 @@ $(function() {
     });
     
     // Start the calendars
-    $('.dtField[id$=0]').datepicker({ dateFormat: 'dd/mm/yy' });
+    $('.dtField[id$=0]').datepicker({ dateFormat: 'yy-mm-dd' });
     // And the masks for the time boxes
     $('.dtField[id$=1]').mask('99:99', { placeholder: " " });
 });

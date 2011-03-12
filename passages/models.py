@@ -58,13 +58,11 @@ class PassageForm(ModelForm):
     class Meta:
         model = Passage
         widgets = {
-            'eta_breaksea':  SplitDateTimeWidget(attrs={'date_format': '%d/%m/%Y',
-                                                        'time_format': '%H:%M',
-                                                        'class'      : 'dtField'}),
-            'etd_sharpness': SplitDateTimeWidget(attrs={'date_format': '%d/%m/%Y',
-                                                        'time_format': '%H:%M',
-                                                        'class'      : 'dtField'})
-        }
+            'eta_breaksea':  SplitDateTimeWidget(attrs={'class': 'dtField'},
+                                                        date_format='%Y-%m-%d', time_format='%H:%M:%S'),
+            'etd_sharpness': SplitDateTimeWidget(attrs={'class': 'dtField'},
+                                                        date_format="%Y-%m-%d", time_format='%H:%M')
+                                                        }
         
 class VesselDetailForm(ModelForm):
     class Meta:
