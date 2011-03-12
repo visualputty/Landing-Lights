@@ -45,6 +45,7 @@ $(function() {
     
     // Start the calendars
     $('.dtField[id$=0]').datepicker({ dateFormat: 'yy-mm-dd' });
+    $('#id_etd_sharpness').datepicker({ dateFormat: 'yy-mm-dd' });
     // And the masks for the time boxes
     $('.dtField[id$=1]').mask('99:99', { placeholder: " " });
 });

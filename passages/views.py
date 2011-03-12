@@ -8,6 +8,7 @@ from models import *
 from django.utils import simplejson
 from django.forms.models import model_to_dict
 
+
 def index(request):
     rCxt = RequestContext(request)
     if request.method == "POST":
@@ -27,6 +28,9 @@ def index(request):
             if vForm.is_valid():
                 vForm.save()
                 form.save()
+                # Send an email
+                form.sendAsEmail()
+                
                 request.flash['success'] = "Success: Your request has been received"
                 return HttpResponseRedirect('/')
             else:
