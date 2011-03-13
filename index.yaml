@@ -21,8 +21,21 @@ indexes:
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
 
+- kind: auth_user
+  properties:
+  - name: is_superuser
+  - name: username
+
 - kind: passages_passage
   properties:
+  - name: __key__
+    direction: desc
+
+- kind: passages_passage
+  properties:
+  - name: idxf_eta_breaksea_l_day
+  - name: idxf_eta_breaksea_l_month
+  - name: idxf_eta_breaksea_l_year
   - name: __key__
     direction: desc
 

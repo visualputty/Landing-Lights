@@ -1,7 +1,7 @@
 {% extends "passages/base.html" %}
 
 {% block title %}Pre-Arrival Information{% endblock %}
-{% block header %}Pre-Arrival Information{% endblock %}
+{% block header %}<img src="/static/images/logo_golf.png" alt="Logo" />Pre-Arrival Information{% endblock %}
 
 {% block content %}
 
@@ -10,7 +10,8 @@
 {% if flash.success %}<div id='flashmessage' class='success'>{{ flash.success }}</div>{% endif %}
 {% if flash.error %}<div id='flashmessage' class='error'>{{ flash.error }}</div>{% endif %}
 
-<form action="" method="post" id="passageForm">
+
+<form action="{{ request.path }}" method="post" id="passageForm">
   {% csrf_token %}
   <fieldset>
   {% for field in form %}

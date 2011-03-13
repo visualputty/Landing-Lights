@@ -18,7 +18,7 @@ header {
     padding: 30px 0;
 }
 
-content {
+section {
     width: 960px;
     display: block;
     margin: 15px auto;
@@ -32,6 +32,11 @@ h1 {
 header h1 {
     margin: 0 auto;
     width: 980px;
+}
+
+header h1 img {
+    padding-right: 10px;
+    margin-bottom: -15px;
 }
 
 p {
